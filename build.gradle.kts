@@ -2,11 +2,11 @@
  *    Copyright 2020 Taktik SA
  */
 
+import java.text.SimpleDateFormat
+import java.util.Date
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import org.springframework.boot.gradle.tasks.bundling.BootJar
 import org.springframework.boot.gradle.tasks.run.BootRun
-import java.text.SimpleDateFormat
-import java.util.*
 
 val ktlint by configurations.creating
 
@@ -18,6 +18,15 @@ plugins {
     kotlin("jvm") version "1.4.32"
     kotlin("kapt") version "1.4.32"
     `maven-publish`
+	id("org.sonarqube") version "3.4.0.2513"
+}
+
+sonarqube {
+	properties {
+		property("sonar.projectKey", "icure-io_icure-kraken-oss")
+		property("sonar.organization", "icure-io")
+		property("sonar.host.url", "https://sonarcloud.io")
+	}
 }
 
 buildscript {
