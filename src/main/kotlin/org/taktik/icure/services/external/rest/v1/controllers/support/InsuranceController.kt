@@ -65,6 +65,13 @@ class InsuranceController(
 			?: throw ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Insurance deletion failed")
 	}
 
+	@Operation(summary = "Gets all insurances")
+	@GetMapping
+	fun getInsurances(): Flux<InsuranceDto> {
+		val insurances = insuranceLogic.getEntities()
+		return insurances.map { insuranceMapper.map(it) }.injectReactorContext()
+	}
+
 	@Operation(summary = "Gets an insurance")
 	@GetMapping("/{insuranceId}")
 	fun getInsurance(@PathVariable insuranceId: String) = mono {
