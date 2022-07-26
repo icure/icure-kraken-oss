@@ -72,6 +72,12 @@ class InsuranceController(
 			?: throw ResponseStatusException(HttpStatus.NOT_FOUND, "Insurance fetching failed")
 		insuranceV2Mapper.map(insurance)
 	}
+	@Operation(summary = "Gets all insurances")
+	@GetMapping
+	fun getInsurances(): Flux<InsuranceDto> {
+		val insurances = insuranceLogic.getEntities()
+		return insurances.map { insuranceV2Mapper.map(it) }.injectReactorContext()
+	}
 
 	@Operation(summary = "Gets insurances by id")
 	@PostMapping("/byIds")
