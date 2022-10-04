@@ -11,7 +11,7 @@ map = function (doc) {
 
 	var emit_patients_by_address = function (hcparty, doc, latin_map) {
 		doc.addresses.forEach(function (address) {
-			emit_normalized_substrings(hcparty, ((address.street || '') + (address.postalCode || '') + (address.city || '')).replace(new RegExp('\\s', 'g'), '').replace(new RegExp('\\W', 'g'), '').toLowerCase(), doc._id, latin_map);
+			emit_normalized_substrings(hcparty, ((address.street || '') + (address.postalCode || '') + (address.houseNumber || '') + (address.postboxNumber || '') + (address.city || '')).replace(new RegExp('\\s', 'g'), '').replace(new RegExp('\\W', 'g'), '').toLowerCase(), doc._id, latin_map);
 		});
 	};
 
