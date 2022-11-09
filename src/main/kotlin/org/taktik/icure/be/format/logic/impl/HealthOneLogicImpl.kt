@@ -277,10 +277,10 @@ class HealthOneLogicImpl(
 		val greaterThanStrings = listOf("plus de", "au moins", "minstens", "tenminste", "meer dan", "groter dan", "larger than", "greater than", "hoger dan", "higher than")
         val separatorStrings = listOf(" ", ":", "-")
 		var cleanedString = lowerCase(refValues)
-		lessThanStrings.forEach{lts -> cleanedString = cleanedString.replace(lts, "<")}
-		greaterThanStrings.forEach{gts -> cleanedString = cleanedString.replace(gts, ">")}
+		lessThanStrings.forEach{cleanedString = cleanedString.replace(it, "<")}
+		greaterThanStrings.forEach{cleanedString = cleanedString.replace(it, ">")}
 		if(cleanedString !== refValues) {
-			separatorStrings.forEach { sep -> cleanedString = cleanedString.replace(sep, "") }
+			separatorStrings.forEach {cleanedString = cleanedString.replace(it, "") }
 		}
 		return cleanedString
 	}
