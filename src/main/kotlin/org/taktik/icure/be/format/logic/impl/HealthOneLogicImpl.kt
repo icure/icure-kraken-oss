@@ -281,8 +281,9 @@ class HealthOneLogicImpl(
 		greaterThanStrings.forEach{cleanedString = cleanedString.replace(it, ">")}
 		if(cleanedString !== lowerCase(refValues)) { //only remove separator if there were string replacements
 			separatorStrings.forEach {cleanedString = cleanedString.replace(it, "") }
+			return cleanedString
 		}
-		return cleanedString
+		return refValues
 	}
 
 	protected fun tryToGetReferenceValues(refValues: String): Reference? {
