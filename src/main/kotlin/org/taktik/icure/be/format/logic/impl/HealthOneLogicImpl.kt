@@ -273,7 +273,7 @@ class HealthOneLogicImpl(
 	}
 
 	protected fun humanLanguageReplacer(refValues: String): String{
-		val lessThanStrings = listOf("moins de", "minder dan", "less than", "kleiner dan", "lager dan", "lager dan");
+		val lessThanStrings = listOf("moins de", "minder dan", "less than", "kleiner dan", "lager dan", "lower than");
 		val greaterThanStrings = listOf("plus de", "au moins", "minstens", "tenminste", "meer dan", "groter dan", "larger than", "greater than", "hoger dan", "higher than")
         val separatorStrings = listOf(" ", ":", "-")
 		var cleanedString = lowerCase(refValues)
