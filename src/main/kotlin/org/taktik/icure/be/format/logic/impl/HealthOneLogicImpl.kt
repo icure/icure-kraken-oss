@@ -279,7 +279,7 @@ class HealthOneLogicImpl(
 		var cleanedString = lowerCase(refValues)
 		lessThanStrings.forEach{cleanedString = cleanedString.replace(it, "<")}
 		greaterThanStrings.forEach{cleanedString = cleanedString.replace(it, ">")}
-		if(cleanedString !== lowerCase(refValues)) {
+		if(cleanedString !== lowerCase(refValues)) { //only remove separator if there were string replacements
 			separatorStrings.forEach {cleanedString = cleanedString.replace(it, "") }
 		}
 		return cleanedString
