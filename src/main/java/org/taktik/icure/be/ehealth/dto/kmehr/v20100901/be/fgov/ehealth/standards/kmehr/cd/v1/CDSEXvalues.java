@@ -69,9 +69,21 @@ public enum CDSEXvalues {
         return value;
     }
 
+	static String mapGender(String v){
+		switch (v) {
+			case "changedToMale":
+			case "changedToFemale":
+				return "changed";
+			case "indeterminate":
+				return "undefined";
+			default:
+				return v;
+		}
+
+	}
     public static CDSEXvalues fromValue(String v) {
-        for (CDSEXvalues c : CDSEXvalues.values()) {
-            if (c.value.equals(v)) {
+        for (CDSEXvalues c: CDSEXvalues.values()) {
+            if (c.value.equals(mapGender(v))) {
                 return c;
             }
         }
