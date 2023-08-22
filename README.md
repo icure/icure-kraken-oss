@@ -10,6 +10,7 @@ You will find a copy of GNU General Public License in the LICENSE file in this r
 
 To install compile and start:
 
+
 ```
 git clone git@github.com:taktik/icure-backend.git
 ./gradlew :bootRun
