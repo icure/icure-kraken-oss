@@ -161,7 +161,7 @@ class LoginController(
 				?: throw InvalidJwtException("Invalid refresh token")
 			val userId = claims["userId"] as String
 			val tokenId = claims["tokenId"] as String
-			if (jwtRefreshMap.get("$userId:$tokenId") != true) throw throw InvalidJwtException("Invalid refresh token")
+			if (jwtRefreshMap.get("$userId:$tokenId") != true) throw InvalidJwtException("Invalid refresh token")
 			jwtRefreshMap.evict("$userId:$tokenId")
 			response.statusCode = HttpStatus.OK
 			response.writeWith(Flux.just()).awaitFirstOrNull()
